@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>public_webvr</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <ol class="sites">
+      {% for username, site in sites %}
+        <li class="site__item">
+          <a class="site__link" href="{{ site.url }}" title="{{ site.user.username }}">
+            <div class="site__container">
+
+              <img class="site__user__avatar" src="{{ site.user.avatar_url }}" title="{{ site.user.username }} icon" alt="{{ site.user.username }} icon">
+              <span class="site__user__username">{{ username }}</span>
+              {% if site.manifest.icons %}
+                <img class="site__icon" src="{{ site.manifest.icons[0].src }}" title="{{ site.manifest.name }} icon" alt="{{ site.manifest.name }} icon">
+              {% endif %}
+              {% if site.manifest.name %}
+                <span class="site__name">{{ site.manifest.name }}</span>
+              {% endif %}
+
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+    <iframe allowfullscreen id="iframe" class="iframe pointerNone"></iframe>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

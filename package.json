@@ -1,0 +1,44 @@
+{
+  "name": "public_webvr-server",
+  "version": "1.0.0",
+  "description": "It's like Tim Berners-Lee meets Oculus meets GitHub.",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run prod",
+    "prod": "NODE_ENVIRONMENT='production' node server",
+    "dev": "NODE_ENVIRONMENT='development' nodemon server --watch server/ public/ templates/",
+    "worker": "npm run worker:prod",
+    "worker:prod": "NODE_ENVIRONMENT='production' node worker",
+    "worker:dev": "NODE_ENVIRONMENT='development' nodemon worker --watch worker/",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cvan/public_webvr-server.git"
+  },
+  "author": "Chris Van",
+  "bugs": {
+    "url": "https://github.com/cvan/public_webvr-server/issues"
+  },
+  "homepage": "https://github.com/cvan/public_webvr-server",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "cors": "^2.7.1",
+    "es6-promise": "^2.3.0",
+    "express": "^4.13.1",
+    "express-keenio": "^0.4.5",
+    "lodash": "^3.10.0",
+    "morgan": "^1.6.1",
+    "nunjucks": "^1.3.4",
+    "redis": "^0.12.1",
+    "request-promise": "^0.4.3",
+    "shortid": "^2.2.2",
+    "ytdl-core": "^0.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.4.0",
+    "release-it": "^0.1.3"
+  }
+}
